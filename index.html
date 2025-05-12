@@ -11,18 +11,26 @@
     ></script>
   </head>
   <body>
+       
+    <nav>
+      <div class="container">
+        <img src="images/logo.png" class="logo" />
+        <ul id="sidemenu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+          <i class="fa-solid fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        <!-- hide these in website -->
+      </div>
+    </nav>
+    
+
     <div id="header">
       <div class="container">
-        <nav>
-          <img src="images/image.png" class="logo" />
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
         <div class="header-text">
           <p>WEB DEVELOPER</p>
           <h1>Hi, This is <span>Ramya</span></h1>
@@ -36,6 +44,7 @@
         <div class="row">
           <div class="about-col1">
             <img src="images/r1.jpg" />
+
           </div>
           <div class="about-col2">
             <h1 class="sub-title">About me</h1>
@@ -206,6 +215,21 @@
         event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab");
       }
+    </script>
+    <script>
+      // for side menu open and close
+      var sidemeu=document.getElementById("sidemenu");
+
+      function openmenu(){
+        sidemeu.style.right="0";
+      }
+
+      function closemenu(){
+        sidemeu.style.right="-250px";
+      }
+      document.querySelector(".fa-bars").addEventListener("click", openMenu);
+      document.querySelector(".fa-times").addEventListener("click", closeMenu);
+
     </script>
   </body>
 </html>
