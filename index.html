@@ -16,11 +16,11 @@
       <div class="container">
         <img src="images/logo.png" class="logo" />
         <ul id="sidemenu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
           <i class="fa-solid fa-times" onclick="closemenu()"></i>
         </ul>
         <i class="fa-solid fa-bars" onclick="openmenu()"></i>
@@ -30,10 +30,13 @@
     
 
     <div id="header">
-      <div class="container">
+      <div class="container hero-section">
         <div class="header-text">
           <p>WEB DEVELOPER</p>
           <h1>Hi, This is <span>Ramya</span></h1>
+        </div>
+        <div class="web-img">
+        <img src="images/newi.png"/>
         </div>
       </div>
     </div>
@@ -43,8 +46,9 @@
       <div class="container">
         <div class="row">
           <div class="about-col1">
-            <img src="images/r1.jpg" />
-
+            <div class="abt-img">
+            <img src="images/About Me.png" />
+              </div>
           </div>
           <div class="about-col2">
             <h1 class="sub-title">About me</h1>
@@ -167,7 +171,7 @@
 
 
     <!-- contact----------------- -->
-     <div class="contact">
+     <div id="contact">
       <div class="container">
         <div class="row">
           <div class="contact-left">
@@ -185,12 +189,13 @@
 
           </div>
           <div class="contact-right">
-            <form>
+            <form name="submit-to-google-sheet">
               <input type="text" name="Name" placeholder="Your name" required>
               <input type="email" name="Email" placeholder="Your email" required>
               <textarea name="Message" rows="6" placeholder="Your message"></textarea>
               <button class="btn btn2" type="submit">Submit</button>
             </form>
+            <span id="msg"></span>
 
           </div>
         </div>
@@ -230,6 +235,27 @@
       document.querySelector(".fa-bars").addEventListener("click", openMenu);
       document.querySelector(".fa-times").addEventListener("click", closeMenu);
 
-    </script>
+      </script>
+      <!-- // google form----------------- -->
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzOd6gY7pX6LIt8zC0y97M7QY4WXal1lsQcg3j9dsHSzRQZAiNmDht7cZib4vzHUXud/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg=document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+              msg.innerHTML="I got your info. Will get bact to you soon..."
+              setTimeout(() => {
+                msg.innerHTML=""
+              }, 5000)
+              form.reset()
+
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+      
   </body>
 </html>
