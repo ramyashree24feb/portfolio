@@ -189,6 +189,14 @@ nav ul li a:hover::after {
   color: #fff;
 }
 
+.about-col2 p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #cccccc;
+  text-align: justify;
+  margin-right: 45px;
+}
+
 .tab-titles {
   display: flex;
   margin: 20px 0 40px;
@@ -239,6 +247,7 @@ nav ul li a:hover::after {
 #services {
   padding: 50px 0;
   padding: 0 40px;
+  margin-bottom: 180px;
 }
 .sub-title {
   margin-left: 40px;
@@ -381,6 +390,10 @@ nav ul li a:hover::after {
 }
 
 /* Contact    ---------- */
+
+.contact {
+}
+
 .contact-left {
   flex-basis: 35%;
   margin-left: 10px;
